@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account | robogotchi</title>
+    <!-- <link rel="stylesheet" href="styles/reset.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="js/login.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="styles/styles.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!-- Placeholder navbar -->
+    <nav class="navbar navbar-light bg-light mb-4">
+        <span class="navbar-brand mb-0 h1">Killer Mutant Robogotchis!!!!</span>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <!-- character up card -->
+            <div class="card col-5 border-0">
+                <div class="card-body character-card">
+                    <h5 class="card-title text-center">Your 'Gotchi</h5>
+                    <form class="gotchi">
+                        <div class="form-group">
+                            <select class="custom-select">
+                                <option selected>Select Your Character Class</option>
+                                <option value="robot">Robot</option>
+                                <option value="alien">Alien</option>
+                                <option value="human">Human</option>
+                            </select>
+                        </div>
+                        <!-- placeholder image -->
+                        <div class="text-center mb-3" style="height: 250px">
+                            <img src="https://via.placeholder.com/250" class="img-fluid rounded" id="gotchi-img">
+                        </div>
+                        <div class="form-group">
+                            <label for="gotchi-name">Name your 'Gotchi</label>
+                            <input type="text" class="form-control" id="gotchi-name" placeholder="Name that 'Gotchi">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- signup card -->
+            <div class="card col-7 border-0">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">Fill out all inputs to create an account</h5>
+                    <form class="sign-up">
+                        <div class="form-group">
+                            <label for="name">What is your name?</label>
+                            <div class="form-row" id="name">
+                                <div class="col">
+                                    <input type="text" class="form-control" id="first" placeholder="First name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" id="last" placeholder="Last name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">Your email address <em>is</em> your
+                                username</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <div class="form-group d-flex justify-content-center">
+                            <button type="submit" class="btn btn-success">Create Account!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // placeholder script which I will copy into my js file
+
+        // loads a picture based on the text input as it changes
+        $("#gotchi-name").on("input", function(e) {
+            e.preventDefault();
+            var selectVal = $(".custom-select").val();
+            var input = e.target.value.trim();
+            var url = displayGotchi(selectVal, input);
+
+            if (selectVal) {
+                if (input === "") {
+                    $("#gotchi-img").attr("src", "https://via.placeholder.com/250");
+                } else {
+                    $("#gotchi-img").attr("src", url);
+                }
+            }
+        });
+        
+        // function that builds the robohash url
+        function displayGotchi(select, nameVal) {
+            var url = "https://robohash.org/";
+            var set;
+            switch (select) {
+                case "robot":
+                    set = "?set=set2";
+                    break;
+                case "alien":
+                    set = "?set=set3";
+                    break;
+                case "human":
+                    set = "?set=set4";
+            }
+            url += nameVal;
+            url += set;
+            return url;
+        }
+
+        // ajax POST method to our api route to create a new user.
+
+    
+    </script>
+</body>
+
+</html>
