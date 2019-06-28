@@ -9,7 +9,6 @@ module.exports = function(app) {
         Robogatchis: Characters
       });
     });
-  });
 
   // loads login.html
   app.get("/", function(req, res) {
