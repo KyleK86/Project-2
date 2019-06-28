@@ -1,6 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function() {
     // loads a picture based on the text input as it changes
-    $("#gotchi-name").on("input", function (e) {
+    $("#gotchi-name").on("input", function(e) {
         e.preventDefault();
         var selectVal = $(".custom-select").val();
         var input = e.target.value.trim();
@@ -16,11 +16,11 @@ $(document).ready(function () {
     });
 
     // on form submit
-    $("form.sign-up").on("submit", function (e) {
+    $("form.sign-up").on("submit", function(e) {
         e.preventDefault();
         var selectVal = $(".custom-select").val();
         var gotchiName = $("#gotchi-name").val().trim();
-        var userName = `${$("#first").val().trim()} ${$("#last").val().trim()}`;
+        var userName = $("#first").val().trim() + " " + $("#last").val().trim();
         var userEmail = $("#email").val().trim();
         var userPassword = $("#password").val().trim();
 
@@ -44,14 +44,14 @@ $(document).ready(function () {
         var url = "https://robohash.org/";
         var set;
         switch (select) {
-            case "robot":
-                set = "?set=set1";
-                break;
-            case "alien":
-                set = "?set=set2";
-                break;
-            case "human":
-                set = "?set=set3";
+        case "robot":
+            set = "?set=set1";
+            break;
+        case "alien":
+            set = "?set=set2";
+            break;
+        case "human":
+            set = "?set=set3";
         }
         url += nameVal;
         url += set;
@@ -67,7 +67,7 @@ $(document).ready(function () {
             email: email,
             password: password
         })
-            .then(function (data) {
+            .then(function() {
                 window.location.replace("/index");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
