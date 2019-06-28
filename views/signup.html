@@ -69,6 +69,9 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" placeholder="Password">
                         </div>
+                        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                            <span class="sr-only">Error:</span> <span class="msg"></span>
+                        </div>
                         <div class="form-group d-flex justify-content-center">
                             <button type="submit" class="btn btn-success">Create Account!</button>
                         </div>
@@ -77,48 +80,6 @@
             </div>
         </div>
     </div>
-    <script>
-        // placeholder script which I will copy into my js file
-
-        // loads a picture based on the text input as it changes
-        $("#gotchi-name").on("input", function(e) {
-            e.preventDefault();
-            var selectVal = $(".custom-select").val();
-            var input = e.target.value.trim();
-            var url = displayGotchi(selectVal, input);
-
-            if (selectVal) {
-                if (input === "") {
-                    $("#gotchi-img").attr("src", "https://via.placeholder.com/250");
-                } else {
-                    $("#gotchi-img").attr("src", url);
-                }
-            }
-        });
-        
-        // function that builds the robohash url
-        function displayGotchi(select, nameVal) {
-            var url = "https://robohash.org/";
-            var set;
-            switch (select) {
-                case "robot":
-                    set = "?set=set2";
-                    break;
-                case "alien":
-                    set = "?set=set3";
-                    break;
-                case "human":
-                    set = "?set=set4";
-            }
-            url += nameVal;
-            url += set;
-            return url;
-        }
-
-        // ajax POST method to our api route to create a new user.
-
-    
-    </script>
 </body>
 
 </html>
