@@ -1,27 +1,36 @@
 var db = require("../models");
 
 module.exports = function(app) {
-    // Load index page
-    app.get("/", function(req, res) {
-        db.Example.findAll({}).then(function(dbExamples) {
-            res.render("index", {
-                msg: "Welcome!",
-                examples: dbExamples
-            });
-        });
+  // Load index page
+  app.get("/", function(req, res) {
+    db.Robogatchi.findAll({}).then(function(Characters) {
+      res.render("index", {
+        msg: "Welcome!",
+        Robogatchis: Characters
+      });
     });
 
-    // Load example page and pass in an example by id
-    app.get("/example/:id", function(req, res) {
-        db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-            res.render("example", {
-                example: dbExample
-            });
-        });
-    });
+  // loads login.html
+  app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
 
-    // Render 404 page for any unmatched routes
-    app.get("*", function(req, res) {
-        res.render("404");
-    });
+  // loads signup.html
+  app.get("/signup", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+  });
+
+  // loads create.html
+  app.get("/create", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/create.html"));
+  });
+
+  // loads main.html
+  app.get("/main", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/main.html"));
+  });
+  // Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("404");
+  });
 };
