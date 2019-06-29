@@ -1,33 +1,35 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- Placeholder navbar -->
+<nav class="navbar navbar-light bg-light mb-4">
+    <span class="navbar-brand mb-0 h1">Killer Mutant Robogotchis!!!!</span>
+</nav>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<div class="container">
+    <!-- your character card -->
+    <div class="row">
+        <div class="card col-5 border-0">
+            <div class="card-body character-card">
+                <h5 class="card-title text-center">Your 'Gotchi</h5>
+                <h4>users gotchi name will go here</h4>
+                <!-- this will be the image of the character chosen by user -->
+                <div class="text-center mb-3" style="height: 250px">
+                    <img src="https://via.placeholder.com/250" class="img-fluid rounded" id="gotchi-img">
+                </div>
+            </div>
+        </div>
+        <!-- stats card -->
+        <div class="stats">
+            <div class="card col-5 border-0">
+                <div class="card-body stat-card">
+                    <h5 class="card-title text-center">What would you like to do with your Robot?</h5>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">Feed</a>
+                        <a href="#" class="list-group-item list-group-item-action">Entertain</a>
+                        <a href="#" class="list-group-item list-group-item-action">Exercise</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
