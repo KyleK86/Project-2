@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
+    "password": "root",
+=======
     "password": "password",
+>>>>>>> master
     "database": "robogotchi_db",
     "host": "localhost",
     "dialect": "mysql"
