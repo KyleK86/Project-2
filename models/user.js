@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     // Method to compare an unhashed password to the hashed password stored in database
-    User.prototype.validPassword = function(password) {
+    User.prototype.verifyPassword = function(password) {
         return bcrypt.compareSync(password, this.password);
     };
 
@@ -39,6 +39,6 @@ module.exports = function(sequelize, DataTypes) {
     User.addHook("beforeCreate", function(user) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });
-    
+
     return User;
 };
