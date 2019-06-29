@@ -1,17 +1,26 @@
 var db = require("../models");
 
 module.exports = function(app) {
-    // Get all examples
-    app.get("/api/examples", function(req, res) {
-        db.Example.findAll({}).then(function(dbExamples) {
-            res.json(dbExamples);
-        });
+
+    app.post("/login", passport.authenticate("local"), function(req, res) {
+        res.json(req.user);
     });
 
     // Create a new example
-    app.post("/api/examples", function(req, res) {
-        db.Example.create(req.body).then(function(dbExample) {
-            res.json(dbExample);
+    app.post("/signup", function(req, res) {
+
+        console.log(req.body.username);
+        console.log(req.body.email);
+        console.log(req.body.password);
+
+        db.User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
+        }).then(function() {
+            res.redirect(307, "/login");
+        }).catch(function(err) {
+            res.status(401).json(err);
         });
     });
 
