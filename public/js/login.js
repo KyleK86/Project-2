@@ -1,7 +1,6 @@
 $(document).ready(function () {
     // listener for form submit
-    $("form.login").on("submit", function(e) {
-        e.preventDefault();
+    $("form.login").on("submit", function() {
 
         var email = $("#email").val().trim();
         var password = $("#password").val().trim();
@@ -19,7 +18,7 @@ $(document).ready(function () {
 
     // ajax post on form submit
     function loginUser(email, password) {
-        $.post("/api/login", {
+        $.post("/login", {
             email: email,
             password: password
         })
