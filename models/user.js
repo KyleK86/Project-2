@@ -30,6 +30,10 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
+    User.associate = function(models) {
+        User.hasOne(models.Gotchi);
+    };
+
     // Method to compare an unhashed password to the hashed password stored in database
     User.prototype.verifyPassword = function(password) {
         return bcrypt.compareSync(password, this.password);
