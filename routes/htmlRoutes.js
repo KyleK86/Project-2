@@ -1,31 +1,38 @@
-var path = require("path");
-
 var db = require("../models");
 var path = require("path");
 
 module.exports = function (app) {
 
-    // Load index page
+
     app.get("/", function (req, res) {
-        db.User.findAll({}).then(function (err, awesomeObject) {
-            res.render("index", awesomeObject);
-        });
+        // If the user already has an account send them to the members page
+        if (req.user) {
+            db.User.findAll({
+                where: {
+                    userId: req.user.id
+                }
+            }).then(function (awesomeObject) {
+                res.render("index", awesomeObject);
+            },
+            res.sendFile(path.join(__dirname, "../views/signup.html"))
+            );
+        }
     });
 
-    // loads login.html
     app.get("/login", function (req, res) {
-        console.log(req.user);
+        // If the user already has an account send them to the members page
+        if (req.user) {
+            db.User.findAll({}).then(function (awesomeObject) {
+                res.render("index", awesomeObject);
+            });
+        }
         res.sendFile(path.join(__dirname, "../views/login.html"));
     });
+
 
     // loads signup.html
     app.get("/signup", function (req, res) {
         res.sendFile(path.join(__dirname, "../views/signup.html"));
-    });
-
-    // loads create.html
-    app.get("/create", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/create.html"));
     });
 
     // Render 404 page for any unmatched routes
