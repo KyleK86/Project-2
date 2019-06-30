@@ -4,6 +4,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        gotchiType: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         hungry: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -20,5 +24,14 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: 100
         }
     });
+    // We're saying that a Gotchi should belong to an User
+    // A Gotchi can't be created without an User due to the foreign key constraint!
+    Gotchi.associate = function(models) {
+        Gotchi.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return Gotchi;
 };
