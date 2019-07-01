@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     // ajax post on form submit
     function loginUser(email, password) {
-        $.post("/login", {
+        $.post("/api/login", {
             email: email,
             password: password
         })

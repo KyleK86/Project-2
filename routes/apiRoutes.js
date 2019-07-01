@@ -8,7 +8,7 @@ module.exports = function(app) {
     });
 
     // Create a new example
-    app.post("/signup", function(req, res) {
+    app.post("/api/signup", function(req, res) {
 
         console.log(req.body.username);
         console.log(req.body.email);
@@ -19,7 +19,7 @@ module.exports = function(app) {
             email: req.body.email,
             password: req.body.password
         }).then(function() {
-            res.redirect(307, "/login");
+            res.redirect(307, "/api/login");
         }).catch(function(err) {
             res.status(401).json(err);
         });
