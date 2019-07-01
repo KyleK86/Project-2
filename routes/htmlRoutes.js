@@ -5,18 +5,17 @@ module.exports = function (app) {
 
 
     app.get("/", function (req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-            db.User.findAll({
-                where: {
-                    userId: req.user.id
-                }
-            }).then(function (awesomeObject) {
-                res.render("index", awesomeObject);
-            },
-            res.sendFile(path.join(__dirname, "../views/signup.html"))
-            );
+        if (!req.user) {
+            res.redirect("/signup");
+            return;
         }
+        db.Gotchi.findAll({
+            where: {
+                userId: req.user.id
+            }
+        }).then(function (awesomeObject) {
+            res.render("index", awesomeObject);
+        });
     });
 
     app.get("/login", function (req, res) {
