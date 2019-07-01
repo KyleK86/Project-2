@@ -25,10 +25,14 @@ module.exports = function(app) {
         });
     });
 
-    // Delete an example by id
-    app.delete("/api/examples/:id", function(req, res) {
-        db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-            res.json(dbExample);
-        });
+    app.get("/api/user_data", function(req, res) {
+        if (!req.user) {
+            res.json({});
+        } else {
+            res.json({
+                username: req.user.username,
+                id: req.user.id
+            });
+        }
     });
 };

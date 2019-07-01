@@ -2,24 +2,24 @@ $(document).ready(function () {
     // listener for form submit
     $("form.login").on("submit", function() {
 
-        var email = $("#email").val().trim();
+        var username = $("#username").val().trim();
         var password = $("#password").val().trim();
 
-        if (!email || !password) {
+        if (!username || !password) {
             return;
         }
 
-        loginUser(email, password);
+        loginUser(username, password);
 
-        $("#email").val("");
+        $("#username").val("");
         $("#password").val("");
 
     });
 
     // ajax post on form submit
-    function loginUser(email, password) {
+    function loginUser(username, password) {
         $.post("/api/login", {
-            email: email,
+            username: username,
             password: password
         })
             .then(function () {
