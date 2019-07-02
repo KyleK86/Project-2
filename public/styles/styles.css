@@ -9,3 +9,13 @@
 .character-card {
   border: 2px solid rgb(3, 59, 3);
 }
+
+.navbar a {
+  color: black;
+  transition: all 0.25s;
+}
+
+.navbar a:hover {
+  color: rgb(40, 167, 69);
+  text-decoration: none;
+}
