@@ -37,4 +37,9 @@ module.exports = function (app) {
             res.status(401).json(err);
         });
     });
+
+    app.get("/logout", function(req, res) {
+        req.logout();
+        res.redirect("/login");
+    });
 };
