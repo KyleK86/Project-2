@@ -13,7 +13,6 @@ passport.use(new LocalStrategy(
                 username: username
             }
         }).then(function(dbUser) {
-            if (err) { return done(err); }
 
             // If there's no user with the given email
             if (!dbUser) {

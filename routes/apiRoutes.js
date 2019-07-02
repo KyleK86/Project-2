@@ -1,14 +1,14 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
-module.exports = function(app) {
+module.exports = function (app) {
 
-    app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    app.post("/api/login", passport.authenticate("local"), function (req, res) {
         res.json(req.user);
     });
 
     // Create a new example
-    app.post("/api/signup", function(req, res) {
+    app.post("/api/signup", function (req, res) {
 
         console.log(req.body.username);
         console.log(req.body.email);
@@ -18,21 +18,22 @@ module.exports = function(app) {
             username: req.body.username,
             email: req.body.email,
             password: req.body.password
-        }).then(function() {
+        }).then(function (user) {
+            console.log("userId", user.dataValues.id);
+            // redirect to the api login route to do a user auth. 
             res.redirect(307, "/api/login");
-        }).catch(function(err) {
+            db.Gotchi.create({
+                gotchiName: req.body.gotchiName,
+                gotchiPicture: req.body.gotchiPicture,
+                UserId: user.dataValues.id
+            }).then(function (gotchi) {
+                console.log(gotchi);
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }).catch(function (err) {
+            console.log(err);
             res.status(401).json(err);
         });
-    });
-
-    app.get("/api/user_data", function(req, res) {
-        if (!req.user) {
-            res.json({});
-        } else {
-            res.json({
-                username: req.user.username,
-                id: req.user.id
-            });
-        }
     });
 };
