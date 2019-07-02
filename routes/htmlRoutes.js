@@ -21,8 +21,9 @@ module.exports = function (app) {
     app.get("/login", function (req, res) {
         // If the user already has an account send them to the members page
         if (req.user) {
-            db.User.findAll({}).then(function (awesomeObject) {
-                res.render("index", awesomeObject);
+            db.User.findOne({}).then(function (gotchi) {
+                console.log("this is the object:", gotchi.dataValues);
+                res.render("index", gotchi.dataValues);
             });
         }
         res.sendFile(path.join(__dirname, "../views/login.html"));
