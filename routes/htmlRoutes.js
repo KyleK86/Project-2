@@ -14,6 +14,7 @@ module.exports = function (app) {
                 userId: req.user.id
             }
         }).then(function (awesomeObject) {
+            console.log("awewsome object", awesomeObject.dataValues);
             res.render("index", awesomeObject.dataValues);
         });
     });
