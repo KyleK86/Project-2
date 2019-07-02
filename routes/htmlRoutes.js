@@ -20,10 +20,7 @@ module.exports = function (app) {
     app.get("/login", function (req, res) {
         // If the user already has an account send them to the members page
         if (req.user) {
-            db.User.findOne({}).then(function (gotchi) {
-                console.log("this is the object:", gotchi.dataValues);
-                res.render("index", gotchi.dataValues);
-            });
+            res.redirect("/");
         }
         res.sendFile(path.join(__dirname, "../views/login.html"));
     });

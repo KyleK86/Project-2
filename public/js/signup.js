@@ -4,7 +4,7 @@ $(document).ready(function() {
         e.preventDefault();
         var selectVal = $(".custom-select").val();
         var input = e.target.value.trim();
-        var url = displayGotchi(selectVal, input);
+        var url = displayGotchi(selectVal, input)[0];
 
         if (selectVal) {
             if (input === "") {
