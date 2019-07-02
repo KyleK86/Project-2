@@ -20,7 +20,7 @@ $(document).ready(function() {
         e.preventDefault();
         var selectVal = $(".custom-select").val();
         var gotchiName = $("#gotchi-name").val().trim();
-        var userName = $("#first").val().trim() + " " + $("#last").val().trim();
+        var userName = $("#username").val().trim();
         var userEmail = $("#email").val().trim();
         var userPassword = $("#password").val().trim();
 
@@ -33,8 +33,7 @@ $(document).ready(function() {
         signUpUser(gotchiName, gotchiPicture, userName, userEmail, userPassword);
         // reset values
         $("#gotchi-name").val("");
-        $("#first").val("");
-        $("#last").val("");
+        $("#username").val("");
         $("#email").val("");
         $("#password").val("");
     });
@@ -63,12 +62,12 @@ $(document).ready(function() {
         $.post("/api/signup", {
             gotchiName: gotchiName,
             gotchiPicture: gotchiPicture,
-            name: name,
+            username: name,
             email: email,
             password: password
         })
             .then(function() {
-                window.location.replace("/index");
+                window.location.replace("/");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
             .catch(handleLoginErr);
