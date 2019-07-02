@@ -28,9 +28,12 @@ $(document).ready(function() {
             return;
         }
 
-        var gotchiPicture = displayGotchi(selectVal, gotchiName);
+        var gotchi = displayGotchi(selectVal, gotchiName);
 
-        signUpUser(gotchiName, gotchiPicture, userName, userEmail, userPassword);
+        var gotchiPicture = gotchi[0];
+        var gotchiType = gotchi[1];
+
+        signUpUser(gotchiName, gotchiPicture, gotchiType, userName, userEmail, userPassword);
         // reset values
         $("#gotchi-name").val("");
         $("#username").val("");
@@ -41,27 +44,34 @@ $(document).ready(function() {
     // function that builds the robohash url
     function displayGotchi(select, nameVal) {
         var url = "https://robohash.org/";
+        var gotchi = [];
         var set;
+        var type;
         switch (select) {
         case "robot":
             set = "?set=set1";
+            type = "robot";
             break;
         case "alien":
             set = "?set=set2";
+            type = "alien";
             break;
         case "human":
             set = "?set=set3";
+            type = "human";
         }
         url += nameVal;
         url += set;
-        return url;
+        gotchi.push(url, type);
+        return gotchi;
     }
 
     // ajax POST method to our api route to create a new user.
-    function signUpUser(gotchiName, gotchiPicture, name, email, password) {
+    function signUpUser(gotchiName, gotchiPicture, gotchiType, name, email, password) {
         $.post("/api/signup", {
             gotchiName: gotchiName,
             gotchiPicture: gotchiPicture,
+            gotchiType: gotchiType,
             username: name,
             email: email,
             password: password

@@ -4,6 +4,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        gotchiPicture: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         gotchiType: {
             type: DataTypes.STRING,
             allowNull: false
