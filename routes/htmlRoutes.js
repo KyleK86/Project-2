@@ -3,7 +3,6 @@ var path = require("path");
 
 module.exports = function (app) {
 
-
     app.get("/", function (req, res) {
         if (!req.user) {
             res.redirect("/signup");
@@ -25,7 +24,6 @@ module.exports = function (app) {
         }
         res.sendFile(path.join(__dirname, "../views/login.html"));
     });
-
 
     // loads signup.html
     app.get("/signup", function (req, res) {
