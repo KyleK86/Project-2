@@ -1,5 +1,6 @@
-$(document).ready(function () {
+$(document).ready(function (event) {
     // listener for form submit
+    event.preventDefault();
     $("form.login").on("submit", function() {
 
         var username = $("#username").val().trim();
@@ -23,7 +24,7 @@ $(document).ready(function () {
             password: password
         })
             .then(function () {
-                window.location.replace("/index");
+                window.location.replace("/");
                 // If there's an error, log the error
             })
             .catch(handleLoginErr);
@@ -31,6 +32,7 @@ $(document).ready(function () {
 
     // error handler
     function handleLoginErr(err) {
+        console.log(err.responseJSON);
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
     }
