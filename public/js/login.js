@@ -1,8 +1,7 @@
-$(document).ready(function (event) {
+$(document).ready(function () {
     // listener for form submit
-    event.preventDefault();
-    $("form.login").on("submit", function() {
-
+    $("form.login").on("submit", function(event) {
+        event.preventDefault();
         var username = $("#username").val().trim();
         var password = $("#password").val().trim();
 
