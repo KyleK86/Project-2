@@ -25,6 +25,7 @@ module.exports = function (app) {
             db.Gotchi.create({
                 gotchiName: req.body.gotchiName,
                 gotchiPicture: req.body.gotchiPicture,
+                gotchiType: req.body.gotchiType,
                 UserId: user.dataValues.id
             }).then(function (gotchi) {
                 console.log(gotchi);

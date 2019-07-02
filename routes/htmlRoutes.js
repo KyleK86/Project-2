@@ -9,12 +9,12 @@ module.exports = function (app) {
             res.redirect("/signup");
             return;
         }
-        db.Gotchi.findAll({
+        db.Gotchi.findOne({
             where: {
                 userId: req.user.id
             }
         }).then(function (awesomeObject) {
-            res.render("index", awesomeObject);
+            res.render("index", awesomeObject.dataValues);
         });
     });
 
