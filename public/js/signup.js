@@ -57,7 +57,7 @@ $(document).ready(function() {
             type = "alien";
             break;
         case "human":
-            set = "?set=set3";
+            set = "?set=set5";
             type = "human";
         }
         url += nameVal;
@@ -84,6 +84,7 @@ $(document).ready(function() {
     }
 
     function handleLoginErr(err) {
+        console.log(err.responseJSON);
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
     }
