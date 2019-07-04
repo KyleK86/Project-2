@@ -1,6 +1,7 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
+
 module.exports = function (app) {
 
     app.post("/api/login", passport.authenticate("local"), function (req, res) {
@@ -43,3 +44,19 @@ module.exports = function (app) {
         res.redirect("/login");
     });
 };
+
+app.put("/api/gotchi/:id", function(req, res) {
+    if (!req.user) {
+        res.redirect("/login");
+    } else {
+        db.gotchi.update(
+            req.body,
+            {
+                where: {
+                    UserId: req.params.id
+                }
+            }).then(function(gotchi) {
+            res.json(gotchi);
+        });
+    }
+});
