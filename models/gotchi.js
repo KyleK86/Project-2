@@ -12,6 +12,11 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        isAlive: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: true
+        },
         hungry: {
             type: DataTypes.INTEGER,
             allowNull: false,
