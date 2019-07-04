@@ -15,14 +15,19 @@ module.exports = function (sequelize, DataTypes) {
         hungry: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: 100
+            defaultValue: 0
         },
         bored: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: 100
+            defaultValue: 0
         },
         lazy: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0
+        },
+        health: {
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 100
@@ -37,5 +42,6 @@ module.exports = function (sequelize, DataTypes) {
             }
         });
     };
+ 
     return Gotchi;
 };
