@@ -53,7 +53,7 @@ app.put("/api/gotchi/:id", function(req, res) {
             req.body,
             {
                 where: {
-                    id: req.params.id
+                    UserId: req.params.id
                 }
             }).then(function(gotchi) {
             res.json(gotchi);
