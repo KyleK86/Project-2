@@ -49,7 +49,7 @@ app.put("/api/gotchi/:id", function(req, res) {
     if (!req.user) {
         res.redirect("/login");
     } else {
-        db.gotchi.update(
+        db.Gotchi.update(
             req.body,
             {
                 where: {
