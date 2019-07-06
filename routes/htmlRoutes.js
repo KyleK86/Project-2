@@ -28,7 +28,8 @@ module.exports = function (app) {
 
     // loads signup.html
     app.get("/signup", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/signup.html"));
+        var errorObj = req.session.errors;
+        res.render("signup", errorObj);
     });
 
     // Render 404 page for any unmatched routes

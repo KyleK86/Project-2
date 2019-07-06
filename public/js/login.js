@@ -21,18 +21,9 @@ $(document).ready(function () {
         $.post("/api/login", {
             username: username,
             password: password
-        })
-            .then(function () {
-                window.location.replace("/");
-                // If there's an error, log the error
-            })
-            .catch(handleLoginErr);
-    }
-
-    // error handler
-    function handleLoginErr(err) {
-        console.log(err.responseJSON);
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
+        }).then(function () {
+            window.location.replace("/");
+            // If there's an error, log the error
+        });
     }
 });
