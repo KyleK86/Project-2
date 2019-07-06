@@ -1,4 +1,6 @@
+
 $(document).ready(function() {
+    
     // loads a picture based on the text input as it changes
     $("#gotchi-name").on("input", function(e) {
         e.preventDefault();
@@ -23,8 +25,9 @@ $(document).ready(function() {
         var userName = $("#username").val().trim();
         var userEmail = $("#email").val().trim();
         var userPassword = $("#password").val().trim();
+        var userPasswordCheck = $("#password-check").val().trim();
 
-        if (!selectVal || !gotchiName || !userName || !userEmail || !userPassword) {
+        if (!selectVal || !gotchiName || !userName || !userEmail || !userPassword || !userPasswordCheck) {
             return;
         }
 
@@ -33,15 +36,17 @@ $(document).ready(function() {
         var gotchiPicture = gotchi[0];
         var gotchiType = gotchi[1];
 
-        signUpUser(gotchiName, gotchiPicture, gotchiType, userName, userEmail, userPassword);
-        // reset values
+        signUpUser(gotchiName, gotchiPicture, gotchiType, userName, userEmail, userPassword, userPasswordCheck);
+        // Reset values
         $("#gotchi-name").val("");
         $("#username").val("");
         $("#email").val("");
         $("#password").val("");
+        $("#password-check").val("");
+        $("#error-text").val("");
     });
 
-    // function that builds the robohash url
+    // Function that builds the robohash url
     function displayGotchi(select, nameVal) {
         var url = "https://robohash.org/";
         var gotchi = [];
@@ -66,26 +71,18 @@ $(document).ready(function() {
         return gotchi;
     }
 
-    // ajax POST method to our api route to create a new user.
-    function signUpUser(gotchiName, gotchiPicture, gotchiType, name, email, password) {
+    // Ajax POST method to our api route to create a new user.
+    function signUpUser(gotchiName, gotchiPicture, gotchiType, name, email, password, passwordCheck) {
         $.post("/api/signup", {
             gotchiName: gotchiName,
             gotchiPicture: gotchiPicture,
             gotchiType: gotchiType,
             username: name,
             email: email,
-            password: password
-        })
-            .then(function() {
-                window.location.replace("/");
-                // If there's an error, handle it by throwing up a bootstrap alert
-            })
-            .catch(handleLoginErr);
-    }
-
-    function handleLoginErr(err) {
-        // console.log("ERROR: ", err.responseJSON.errors[0].message);
-        // $("#alert .msg").text(err.responseJSON.errors[0].message);
-        // $("#alert").fadeIn(500);
+            password: password,
+            passwordCheck: passwordCheck
+        }).then(function() {
+            window.location.replace("/");
+        });
     }
 });

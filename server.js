@@ -14,10 +14,6 @@ var PORT = process.env.PORT || 3000;
 var session = require("express-session");
 var passport = require("./config/passport");
 
-// var signup = require("./routes/htmlRoutes") && require("./routes/apiRoutes");
-
-// app.use("/signup", signup);
-
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
