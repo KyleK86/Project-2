@@ -1,7 +1,6 @@
-
 {{!-- Navbar Start --}}
 <nav class="navbar navbar-light bg-light mb-4">
-    <span class="navbar-brand mb-0 h1">Killer Mutant Robogotchis!!!!</span>
+    <span class="navbar-brand mb-0 h1 nav-head">Killer Mutant Robogotchis!!!!</span>
     <span><a id="login" href="/login">Already a User?</a></span>
 </nav>
 {{!-- Navbar End --}}
@@ -23,8 +22,8 @@
                             <option value="human">Human</option>
                         </select>
                     </div>
-                    <div class="text-center mb-3" style="height: 250px">
-                        <img src="https://via.placeholder.com/250" class="img-fluid rounded" id="gotchi-img">
+                    <div class="text-center mb-3">
+                        <img src="/images/robot-placeholder.jpg" class="img-fluid rounded" id="gotchi-img">
                     </div>
                     <div class="form-group">
                         <label for="gotchi-name">Name your 'Gotchi</label>
@@ -41,28 +40,32 @@
                 <h5 class="card-title text-center mb-4">Fill out all inputs to create an account</h5>
                 <form class="sign-up">
                     <div class="form-group">
-                        <label for="name">What is your username?</label>
+                        <label for="name"></label>
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="username" class="form-control" name="username" id="username" placeholder="Username">
+                            <input type="username" class="form-control" name="username" id="username"
+                                placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                            placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label for="password-check">Re-Enter Password</label>
-                        <input type="password" class="form-control" name="password-check" id="password-check" placeholder="Re-Enter Password">
+                        <input type="password" class="form-control" name="password-check" id="password-check"
+                            placeholder="Re-Enter Password">
                     </div>
                     {{#if errors}}
-                        {{#each errors}}
-                            <p class="alert alert-danger" id="error-text">{{ this.msg }}</p>
-                        {{/each}}
+                    {{#each errors}}
+                    <p class="alert alert-danger" id="error-text">{{ this.msg }}</p>
+                    {{/each}}
                     {{/if}}
                     <div class="form-group d-flex justify-content-center">
                         <button type="submit" class="btn btn-success">Create Account!</button>
@@ -77,4 +80,5 @@
 {{!-- Main Container End --}}
 
 {{!-- Scripts --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/signup.js"></script>

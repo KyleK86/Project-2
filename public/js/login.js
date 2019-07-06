@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     // listener for form submit
     $("form.login").on("submit", function(event) {
         event.preventDefault();

@@ -2,7 +2,7 @@
 // Dependencies
 var db = require("../models");
 var passport = require("../config/passport");
-const {check, validationResult } = require("express-validator");
+const { check, validationResult } = require("express-validator");
 
 
 
@@ -16,47 +16,47 @@ module.exports = function (app) {
     // Handle signup post route and validation
     app.post("/api/signup", [
         check("username")
-        .not().isEmpty().withMessage("Username field cannot be empty.")
-        .isLength(4, 15).withMessage("Username must be between 4-15 characters long.")
-        .custom((username) => {
-            return db.User.findOne({
-                where: {
-                    username: username
-                }
-            }).then(user => {
-                if (user) {
-                    return Promise.reject("Username already in use.");
-                }
-            });
-        }),
+            .not().isEmpty().withMessage("Username field cannot be empty.")
+            .isLength(4, 15).withMessage("Username must be between 4-15 characters long.")
+            .custom((username) => {
+                return db.User.findOne({
+                    where: {
+                        username: username
+                    }
+                }).then(user => {
+                    if (user) {
+                        return Promise.reject("Username already in use.");
+                    }
+                });
+            }),
         check("email")
-        .not().isEmpty().withMessage("Password field cannot be empty.")
-        .isEmail().withMessage("Must use a valid email address.")
-        .custom((email) => {
-            return db.User.findOne({
-                where: {
-                    email: email
-                }
-            }).then(user => {
-                if (user) {
-                    return Promise.reject("Email already in use.");
-                }
-            });
-        }),
+            .not().isEmpty().withMessage("Password field cannot be empty.")
+            .isEmail().withMessage("Must use a valid email address.")
+            .custom((email) => {
+                return db.User.findOne({
+                    where: {
+                        email: email
+                    }
+                }).then(user => {
+                    if (user) {
+                        return Promise.reject("Email already in use.");
+                    }
+                });
+            }),
         check("password")
-        .not().isEmpty().withMessage("Password field cannot be empty.")
-        .isLength(8, 65).withMessage("Password must be between 8-60 characters long.")
-        .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i").withMessage("Password must include one lowercase character, one uppercase character, a number, and a special character."),
+            .not().isEmpty().withMessage("Password field cannot be empty.")
+            .isLength(8, 65).withMessage("Password must be between 8-60 characters long.")
+            .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i").withMessage("Password must include one lowercase character, one uppercase character, a number, and a special character."),
         check("passwordCheck")
-        .not().isEmpty().withMessage("Password field cannot be empty.")
-        .isLength(8, 65).withMessage("Password must be between 8-60 characters long.")
-        .custom((value, { req }) => {
-            if (value !== req.body.password) {
-                return Promise.reject("Passwords do not match.");
-            } else {
-                return value;
-            }
-        }),
+            .not().isEmpty().withMessage("Password field cannot be empty.")
+            .isLength(8, 65).withMessage("Password must be between 8-60 characters long.")
+            .custom((value, { req }) => {
+                if (value !== req.body.password) {
+                    return Promise.reject("Passwords do not match.");
+                } else {
+                    return value;
+                }
+            }),
 
     ], (req, res) => {
 
@@ -68,16 +68,16 @@ module.exports = function (app) {
             req.session.success = false;
             res.redirect('signup');
 
-        // If no errors found, create user and redirect to login
+            // If no errors found, create user and redirect to login
         } else {
             db.User.create({
                 username: req.body.username,
                 email: req.body.email,
                 password: req.body.password
-    
+
             }).then(function (user) {
                 req.session.success = true;
-                
+
                 // Redirect to the api login route to do a user auth. 
                 res.redirect(307, "/api/login");
                 db.Gotchi.create({
@@ -85,7 +85,7 @@ module.exports = function (app) {
                     gotchiPicture: req.body.gotchiPicture,
                     gotchiType: req.body.gotchiType,
                     UserId: user.dataValues.id
-    
+
                 }).then(function (gotchi) {
                     console.log(gotchi.dataValues);
                 }).catch(function (err) {
@@ -104,7 +104,7 @@ module.exports = function (app) {
             res.json(gotchi);
         });
     });
-    
+
     app.put("/api/gotchi/:id", function (req, res) {
         if (!req.user) {
             res.redirect("/login");
@@ -115,12 +115,9 @@ module.exports = function (app) {
                     id: req.params.id
                 }
             }).then(function (gotchi) {
-                if (gotchi[0] === 1) {
-                    res.json(true);
-                } else {
-                    res.json(false);
-                }
+                res.json(gotchi);
             });
         }
     });
+
 };

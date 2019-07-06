@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     $(".action-btn").on("click", function (event) {
@@ -12,7 +11,7 @@ $(document).ready(function () {
         $.get("/api/gotchi/" + id, function (res) {
             var points = res[name];
             console.log(res[name]);
-            payload[name] = points + value;
+            payload[name] = points - value;
             $.ajax({
                 method: "PUT",
                 url: "/api/gotchi/" + id,

@@ -17,6 +17,7 @@ module.exports = function (app) {
                 userId: req.user.id
             }
         }).then(function (awesomeObject) {
+            // res.json(awesomeObject);
             res.render("index", awesomeObject);
         });
     });

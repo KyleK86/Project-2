@@ -1,26 +1,28 @@
 .list-group-item {
   line-height: 2.5;
 }
-
+/* 
 .sign-up {
   border: 2px solid rgb(3, 59, 3);
 }
 
 .character-card {
   border: 2px solid rgb(3, 59, 3);
-}
+} */
 
 /*------------------------------------*/
 /* Nav bar style */
 /*------------------------------------*/
-
+.navbar {
+  justify-content: space-around;
+}
 .navbar a {
-  color: black;
+  color: white;
   transition: all 0.25s;
 }
 
 .navbar a:hover {
-  color: rgb(40, 167, 69);
+  color: #4afdfe;
   text-decoration: none;
 }
 
@@ -32,27 +34,28 @@
   color: white !important;
   font-size: 32px;
   padding: 10px;
-  text-shadow: 4px 2px #1a5cb1;
+  text-shadow: 2px 2px #1a5cb1;
   margin-left: 80px;
 
 }
-
 .bg-light {
   background-color: rgba(0, 0, 0, 0.568)!important;
 }
+
+/*------------------------------------*/
+/* card style */
+/*------------------------------------*/
 
 .sign-up-card {
   margin-right: 50px;
 }
 
 .card {
-  font-family: 'Russo One', sans-serif;
   color: white;
   background-color: rgba(0, 0, 0, 0.568);
 }
-
-.sign-up {
-  border: none !important;
+.card-title {
+  font-family: 'Russo One', sans-serif;
 }
 
 /*------------------------------------*/
@@ -64,21 +67,8 @@
   bottom: 0;
   width: 100%; 
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   z-index: -1;
-}
-
-#video-box {
-  float: left;
-}
-
-#video-overlays {
-    position:absolute;
-    float:left;
-    width:640px;
-    min-height:370px;
-    background-color:#000;
-
 }
 
 .content {
@@ -103,4 +93,10 @@
   border: none;
   box-shadow: 3px 3px 4px #4afdfe;
 
+}
+
+#gotchi-img {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
 }
