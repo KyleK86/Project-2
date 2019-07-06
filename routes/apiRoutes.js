@@ -5,6 +5,7 @@ var passport = require("../config/passport");
 const {check, validationResult } = require("express-validator");
 
 
+
 module.exports = function (app) {
 
     // Handle login post route
@@ -90,6 +91,35 @@ module.exports = function (app) {
                 }).catch(function (err) {
                     console.log(err);
                 });
+            });
+        }
+    });
+
+    app.get("/api/gotchi/:id", function (req, res) {
+        db.Gotchi.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (gotchi) {
+            res.json(gotchi);
+        });
+    });
+    
+    app.put("/api/gotchi/:id", function (req, res) {
+        if (!req.user) {
+            res.redirect("/login");
+        } else {
+            console.log(req.params.id);
+            db.Gotchi.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            }).then(function (gotchi) {
+                if (gotchi[0] === 1) {
+                    res.json(true);
+                } else {
+                    res.json(false);
+                }
             });
         }
     });
