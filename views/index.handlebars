@@ -1,14 +1,15 @@
 
-{{!-- navbar --}}
+{{!-- Navbar Start --}}
 <nav class="navbar navbar-light bg-light mb-4">
     <span class="navbar-brand mb-0 h1">Killer Mutant Robogotchis!!!!</span>
     <span><a id="logout" href="/logout">Logout</a></span>
 </nav>
+{{!-- Navbar End --}}
 
 <div class="container">
-
-    {{!-- Your character card --}}
     <div class="row">
+
+        {{!-- Character Card Start--}}
         <div class="card col-5 border-0">
             <div class="card-body character-card">
                 <h5 class="card-title text-center">Your 'Gotchi</h5>
@@ -19,25 +20,24 @@
                 </div>
             </div>
         </div>
+        {{!-- Character Card End--}}
 
-        {{!-- stats card --}}
+
+        {{!-- Stats Card Start --}}
         <div class="card col-5 border-0">
             <div class="card-body stat-card">
                 <h5 class="card-title text-center">What would you like to do with your Gotchi?</h5>
                 <div class="list-group">
-                    <button data-points={{hungry}} data-id={{id}} name="hungry" value=5 type="button" class="list-group-item list-group-item-action action-btn" id="feedBtn"
-                        data-toggle="modal" data-target="#modal">Feed</button>
-                    <button data-points={{bored}} data-id={{id}} name="bored" value=20 type="button" class="list-group-item list-group-item-action action-btn" id="entertainBtn"
-                        data-toggle="modal" data-target="#modal2">Entertain</button>
-                    <button data-points={{lazy}} data-id={{id}} name="lazy" value=15 type="button" class="list-group-item list-group-item-action action-btn" id="exerciseBtn"
-                        data-toggle="modal" data-target="#modal3">Exercise</button>
-
-
+                    <button data-points={{hungry}} data-id={{id}} name="hungry" value=5 type="button" class="list-group-item list-group-item-action action-btn" id="feedBtn" data-toggle="modal" data-target="#modal">Feed</button>
+                    <button data-points={{bored}} data-id={{id}} name="bored" value=20 type="button" class="list-group-item list-group-item-action action-btn" id="entertainBtn" data-toggle="modal" data-target="#modal2">Entertain</button>
+                    <button data-points={{lazy}} data-id={{id}} name="lazy" value=15 type="button" class="list-group-item list-group-item-action action-btn" id="exerciseBtn" data-toggle="modal" data-target="#modal3">Exercise</button>
                 </div>
             </div>
         </div>
+        {{!-- Stats Card End --}}
 
-        {{!-- food modal --}}
+
+        {{!-- Food Modal Start --}}
         <div class="modal" id="modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -56,8 +56,9 @@
                 </div>
             </div>
         </div>
+        {{!-- Food Modal End --}}
 
-        {{!-- Entertainment modal --}}
+        {{!-- Entertainment Modal Start --}}
         <div class="modal" id="modal2" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -76,8 +77,10 @@
                 </div>
             </div>
         </div>
+        {{!-- Entertainment Modal End --}}
 
-        {{!-- Exercise modal --}}
+
+        {{!-- Exercise Modal Start --}}
         <div class="modal" id="modal3" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -96,6 +99,10 @@
                 </div>
             </div>
         </div>
+        {{!-- Exercise Modal End --}}
+
     </div>
 </div>
+
+{{!-- Scripts --}}
 <script src="js/index.js"></script>
