@@ -1,4 +1,5 @@
 
+
 {{!-- Navbar Start --}}
 <nav class="navbar navbar-light bg-light mb-4">
     <span class="navbar-brand mb-0 h1">Killer Mutant Robogotchis!!!!</span>
@@ -14,9 +15,9 @@
             <div class="card-body character-card">
                 <h5 class="card-title text-center">Your 'Gotchi</h5>
                 <h4>Your Gotchi: </h4>
-                <span>{{gotchiName}}</span>
+                <span>{{dataValues.gotchiName}}</span>
                 <div class="text-center mb-3" style="height: 250px">
-                    <img src="{{gotchiPicture}}" class="img-fluid rounded" id="gotchi-img">
+                    <img src="{{dataValues.gotchiPicture}}" class="img-fluid rounded" id="gotchi-img">
                 </div>
             </div>
         </div>
@@ -28,9 +29,15 @@
             <div class="card-body stat-card">
                 <h5 class="card-title text-center">What would you like to do with your Gotchi?</h5>
                 <div class="list-group">
-                    <button data-points={{hungry}} data-id={{id}} name="hungry" value=5 type="button" class="list-group-item list-group-item-action action-btn" id="feedBtn" data-toggle="modal" data-target="#modal">Feed</button>
-                    <button data-points={{bored}} data-id={{id}} name="bored" value=20 type="button" class="list-group-item list-group-item-action action-btn" id="entertainBtn" data-toggle="modal" data-target="#modal2">Entertain</button>
-                    <button data-points={{lazy}} data-id={{id}} name="lazy" value=15 type="button" class="list-group-item list-group-item-action action-btn" id="exerciseBtn" data-toggle="modal" data-target="#modal3">Exercise</button>
+                    <button data-points="{{hungry}}" data-id="{{id}}" data-name="hungry" value=5 type="button"
+                    class="list-group-item list-group-item-action action-btn" id="feedBtn" data-toggle="modal"
+                        data-target="#modal">Feed</button>
+                    <button data-points="{{bored}}" data-id="{{id}}" name="bored" value=20 type="button"
+                        class="list-group-item list-group-item-action action-btn" id="entertainBtn" data-toggle="modal"
+                        data-target="#modal2">Entertain</button>
+                    <button data-points="{{lazy}}" data-id="{{id}}" name="lazy" value=15 type="button"
+                        class="list-group-item list-group-item-action action-btn" id="exerciseBtn" data-toggle="modal"
+                        data-target="#modal3">Exercise</button>
                 </div>
             </div>
         </div>
@@ -48,7 +55,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Your Gotchi has <span id="hungry-points"></span> food points</p>
+                        <p>Your Gotchi has <span id="hungry-points">{{dataValues.hungry}}</span> food points</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -69,7 +76,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Your Gotchi has <span id="bored-points"></span> entertainment points</p>
+                        <p>Your Gotchi has <span id="bored-points">{{dataValues.bored}}</span> entertainment points</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -91,7 +98,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Your Gotchi has <span id="lazy-points"></span> exercise points</p>
+                        <p>Your Gotchi has <span id="lazy-points">{{dataValues.lazy}}</span> exercise points</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -104,5 +111,3 @@
     </div>
 </div>
 
-{{!-- Scripts --}}
-<script src="js/index.js"></script>
