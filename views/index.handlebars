@@ -8,6 +8,10 @@
 {{!-- Navbar End --}}
 
 <div class="container">
+<<<<<<< HEAD
+=======
+    <!-- your character card -->
+>>>>>>> parent of 5ab16ea... update logic for adding health to each button
     <div class="row">
 
         {{!-- Character Card Start--}}
@@ -15,7 +19,12 @@
             <div class="card-body character-card">
                 <h5 class="card-title text-center">Your 'Gotchi</h5>
                 <h4>Your Gotchi: </h4>
+<<<<<<< HEAD
                 <span>{{dataValues.gotchiName}}</span>
+=======
+                <span>{{gotchiName}}</span>
+                <!-- this will be the image of the character chosen by user -->
+>>>>>>> parent of 5ab16ea... update logic for adding health to each button
                 <div class="text-center mb-3" style="height: 250px">
                     <img src="{{dataValues.gotchiPicture}}" class="img-fluid rounded" id="gotchi-img">
                 </div>
@@ -24,11 +33,16 @@
         {{!-- Character Card End--}}
 
 
+<<<<<<< HEAD
         {{!-- Stats Card Start --}}
+=======
+        <!-- stats card -->
+>>>>>>> parent of 5ab16ea... update logic for adding health to each button
         <div class="card col-5 border-0">
             <div class="card-body stat-card">
-                <h5 class="card-title text-center">What would you like to do with your Gotchi?</h5>
+                <h5 class="card-title text-center">What would you like to do with your Robot?</h5>
                 <div class="list-group">
+<<<<<<< HEAD
                     <button data-points="{{hungry}}" data-id="{{id}}" data-name="hungry" value=5 type="button"
                     class="list-group-item list-group-item-action action-btn" id="feedBtn" data-toggle="modal"
                         data-target="#modal">Feed</button>
@@ -38,6 +52,16 @@
                     <button data-points="{{lazy}}" data-id="{{id}}" name="lazy" value=15 type="button"
                         class="list-group-item list-group-item-action action-btn" id="exerciseBtn" data-toggle="modal"
                         data-target="#modal3">Exercise</button>
+=======
+                    <button type="button" class="list-group-item list-group-item-action" id="feedBtn"
+                        data-toggle="modal" data-target="#modal">Feed</button>
+                    <button type="button" class="list-group-item list-group-item-action" id="entertainBtn"
+                        data-toggle="modal" data-target="#modal2">Entertain</button>
+                    <button type="button" class="list-group-item list-group-item-action" id="exerciseBtn"
+                        data-toggle="modal" data-target="#modal3">Exercise</button>
+
+
+>>>>>>> parent of 5ab16ea... update logic for adding health to each button
                 </div>
             </div>
         </div>

@@ -94,6 +94,7 @@ module.exports = function (app) {
             });
         }
     });
+};
 
     app.get("/api/gotchi/:id", function (req, res) {
         db.Gotchi.findOne({
@@ -112,15 +113,10 @@ module.exports = function (app) {
             console.log(req.params.id);
             db.Gotchi.update(req.body, {
                 where: {
-                    id: req.params.id
+                    UserId: req.params.id
                 }
-            }).then(function (gotchi) {
-                if (gotchi[0] === 1) {
-                    res.json(true);
-                } else {
-                    res.json(false);
-                }
-            });
-        }
-    });
-};
+            }).then(function(gotchi) {
+            res.json(gotchi);
+        });
+    }
+});
