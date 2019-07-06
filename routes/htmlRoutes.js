@@ -1,8 +1,12 @@
+
+// Dependencies
 var db = require("../models");
 var path = require("path");
 
+
 module.exports = function (app) {
 
+    // Load signup page on default route
     app.get("/", function (req, res) {
         if (!req.user) {
             res.redirect("/signup");
@@ -13,11 +17,11 @@ module.exports = function (app) {
                 userId: req.user.id
             }
         }).then(function (awesomeObject) {
-            console.log("awewsome object", awesomeObject.dataValues);
-            res.render("index", awesomeObject.dataValues);
+            res.render("index", awesomeObject);
         });
     });
 
+    // Load login page
     app.get("/login", function (req, res) {
         // If the user already has an account send them to the members page
         if (req.user) {
@@ -26,9 +30,16 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../views/login.html"));
     });
 
-    // loads signup.html
+    // Load signup page
     app.get("/signup", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/signup.html"));
+        var errorObj = req.session.errors;
+        res.render("signup", errorObj);
+    });
+
+    // Load login page when user logs out  
+    app.get("/logout", function(req, res) {
+        req.logout();
+        res.redirect("/login");
     });
 
     // Render 404 page for any unmatched routes
