@@ -39,24 +39,35 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/logout", function(req, res) {
+    app.get("/logout", function (req, res) {
         req.logout();
         res.redirect("/login");
     });
 
-
-    app.put("/api/gotchi/:id", function(req, res) {
+    app.get("/api/gotchi/:id", function (req, res) {
+        db.Gotchi.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (gotchi) {
+            res.json(gotchi);
+        });
+    });
+    app.put("/api/gotchi/:id", function (req, res) {
         if (!req.user) {
             res.redirect("/login");
         } else {
-            db.gotchi.update(
-                req.body,
-                {
-                    where: {
-                        UserId: req.params.id
-                    }
-                }).then(function(gotchi) {
-                res.json(gotchi);
+            console.log(req.params.id);
+            db.Gotchi.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            }).then(function (gotchi) {
+                if (gotchi[0] === 1) {
+                    res.json(true);
+                } else {
+                    res.json(false);
+                }
             });
         }
     });
