@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     $(".action-btn").on("click", function (event) {
@@ -9,20 +8,23 @@ $(document).ready(function () {
         var value = parseInt(event.target.value);
         var id = $(this).data("id");
 
+        $.get("/api/gotchi/" + id, function (res) {
+            var points = res[name];
+            console.log(res[name]);
+            payload[name] = points - value;
+            $.ajax({
+                method: "PUT",
+                url: "/api/gotchi/" + id,
+                data: payload
 
-        $.ajax({
-            method: "PUT",
-            url: "/api/gotchi/:id" + id,
-            data: payload
-
-        }).then(function (response) {
-            console.log(points + value);
-            console.log(response);
-            console.log(name);
-            if (response) {
-                $("#" + name + "-points").text(points + value);
-            }
-
+            }).then(function (response) {
+                console.log(points + value);
+                console.log(response);
+                console.log(name);
+                if (response) {
+                    $("#" + name + "-points").text(points + value);
+                }
+            });
         });
 
     });

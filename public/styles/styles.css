@@ -13,7 +13,9 @@
 /*------------------------------------*/
 /* Nav bar style */
 /*------------------------------------*/
-
+.navbar {
+  justify-content: space-around;
+}
 .navbar a {
   color: white;
   transition: all 0.25s;
@@ -65,7 +67,7 @@
   bottom: 0;
   width: 100%; 
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   z-index: -1;
 }
 
