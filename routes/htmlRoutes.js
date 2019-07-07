@@ -23,17 +23,16 @@ module.exports = function (app) {
 
     // Load login page
     app.get("/login", function (req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-            res.redirect("/");
-        }
-        res.sendFile(path.join(__dirname, "../views/login.html"));
+        var errorObj = { errors: req.flash("error") }; // Hbs error object       
+        console.log("Login Error: ", errorObj);
+        res.render("login", errorObj);
     });
 
     // Load signup page
     app.get("/signup", function (req, res) {
-        var errorObj = req.session.errors;
+        var errorObj = req.session.errors; // Hbs error object   
         res.render("signup", errorObj);
+        delete req.session.errors;
     });
 
     // Load login page when user logs out  

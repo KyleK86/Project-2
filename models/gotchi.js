@@ -1,3 +1,4 @@
+
 module.exports = function (sequelize, DataTypes) {
     var Gotchi = sequelize.define("Gotchi", {
         gotchiName: {
@@ -38,8 +39,9 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: 100
         }
     });
-    // We're saying that a Gotchi should belong to an User
-    // A Gotchi can't be created without an User due to the foreign key constraint!
+
+    // We're saying that a Gotchi should belong to a User
+    // A Gotchi can't be created without a User due to the foreign key constraint!
     Gotchi.associate = function(models) {
         Gotchi.belongsTo(models.User, {
             foreignKey: {

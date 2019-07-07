@@ -17,7 +17,7 @@ $(document).ready(function() {
         }
     });
 
-    // on form submit
+    // Handle form submit
     $("form.sign-up").on("submit", function(e) {
         e.preventDefault();
         var selectVal = $(".custom-select").val();
@@ -37,6 +37,7 @@ $(document).ready(function() {
         var gotchiType = gotchi[1];
 
         signUpUser(gotchiName, gotchiPicture, gotchiType, userName, userEmail, userPassword, userPasswordCheck);
+        
         // Reset values
         $("#gotchi-name").val("");
         $("#username").val("");
@@ -52,6 +53,7 @@ $(document).ready(function() {
         var gotchi = [];
         var set;
         var type;
+
         switch (select) {
         case "robot":
             set = "?set=set1";
@@ -65,9 +67,11 @@ $(document).ready(function() {
             set = "?set=set5";
             type = "human";
         }
+
         url += nameVal;
         url += set;
         gotchi.push(url, type);
+
         return gotchi;
     }
 
@@ -81,6 +85,7 @@ $(document).ready(function() {
             email: email,
             password: password,
             passwordCheck: passwordCheck
+            
         }).then(function() {
             window.location.replace("/");
         });

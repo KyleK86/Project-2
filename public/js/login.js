@@ -1,5 +1,6 @@
+
 $(document).ready(function () {
-    // listener for form submit
+    // Listener for form submit
     $("form.login").on("submit", function(event) {
         event.preventDefault();
         var username = $("#username").val().trim();
@@ -8,22 +9,20 @@ $(document).ready(function () {
         if (!username || !password) {
             return;
         }
-
         loginUser(username, password);
 
+        // Reset values
         $("#username").val("");
         $("#password").val("");
-
     });
 
-    // ajax post on form submit
+    // Ajax post on form submit
     function loginUser(username, password) {
         $.post("/api/login", {
             username: username,
             password: password
         }).then(function () {
             window.location.replace("/");
-            // If there's an error, log the error
         });
     }
 });

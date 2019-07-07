@@ -51,9 +51,9 @@ CREATE PROCEDURE incrementLazy()
 BEGIN
 	UPDATE robogotchi_db.Gotchis SET lazy = lazy + 3
 	WHERE isAlive=1 AND type='human';
-UPDATE robogotchi_db.Gotchis SET lazy = lazy + 2
+	UPDATE robogotchi_db.Gotchis SET lazy = lazy + 2
 	WHERE isAlive=1 AND type='alien';
-UPDATE robogotchi_db.Gotchis SET lazy = lazy + 1
+	UPDATE robogotchi_db.Gotchis SET lazy = lazy + 1
 	WHERE isAlive=1 AND type='robot';
 	UPDATE robogotchi_db.Gotchis SET health = health - (bored + lazy + hungry)
 	WHERE isAlive=1;
@@ -69,9 +69,9 @@ CREATE PROCEDURE incrementHungry()
 BEGIN
 	UPDATE robogotchi_db.Gotchis SET hungry = hungry + 3
 	WHERE isAlive=1 AND type='human';
-UPDATE robogotchi_db.Gotchis SET hungry = hungry + 2
+	UPDATE robogotchi_db.Gotchis SET hungry = hungry + 2
 	WHERE isAlive=1 AND type='alien';
-UPDATE robogotchi_db.Gotchis SET hungry = hungry + 1
+	UPDATE robogotchi_db.Gotchis SET hungry = hungry + 1
 	WHERE isAlive=1 AND type='robot';
 	UPDATE robogotchi_db.Gotchis SET health = health - (bored + lazy + hungry)
 	WHERE isAlive=1;
