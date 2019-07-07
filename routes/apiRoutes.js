@@ -48,8 +48,6 @@ module.exports = function (app) {
             .isLength(8, 65).withMessage("Password must be between 8-60 characters long.")
             .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i").withMessage("Password must include one lowercase character, one uppercase character, a number, and a special character."),
         check("passwordCheck")
-            .not().isEmpty().withMessage("Password field cannot be empty.")
-            .isLength(8, 65).withMessage("Password must be between 8-60 characters long.")
             .custom((value, { req }) => {
                 if (value !== req.body.password) {
                     return Promise.reject("Passwords do not match.");
@@ -57,6 +55,10 @@ module.exports = function (app) {
                     return value;
                 }
             }),
+        check("gotchiName")
+            .isLength(2, 15).withMessage("Gotchi Name must be between 2-15 characters."),
+        check("gotchiType")
+            .not().isEmpty().withMessage("You must choose a character class.")
 
     ], (req, res) => {
 
@@ -76,10 +78,12 @@ module.exports = function (app) {
                 password: req.body.password
 
             }).then(function (user) {
+
                 req.session.success = true;
 
                 // Redirect to the api login route to do a user auth. 
                 res.redirect(307, "/api/login");
+
                 db.Gotchi.create({
                     gotchiName: req.body.gotchiName,
                     gotchiPicture: req.body.gotchiPicture,
@@ -100,6 +104,7 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
+
         }).then(function (gotchi) {
             res.json(gotchi);
         });
@@ -114,10 +119,10 @@ module.exports = function (app) {
                 where: {
                     id: req.params.id
                 }
+                
             }).then(function (gotchi) {
                 res.json(gotchi);
             });
         }
     });
-
 };

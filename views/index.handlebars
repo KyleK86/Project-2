@@ -1,9 +1,10 @@
 
 
 {{!-- Navbar Start --}}
-<nav class="navbar navbar-light bg-light mb-4">
-    <span class="navbar-brand mb-0 h1 nav-head">Killer Mutant Robogotchis!!!!</span>
-    <span><a id="logout" href="/logout">Logout</a></span>
+<nav class="navbar mb-4">
+    <img class="navbar-logo" src="/images/logo.png" alt="Robogotchi Logo">
+    <span class="navbar-brand">Killer Mutant Robogotchis!!!!</span>
+    <a id="logout" href="/logout">Logout</a>
 </nav>
 {{!-- Navbar End --}}
 
@@ -14,7 +15,7 @@
         <div class="card col-5 border-0">
             <div class="card-body">
                 <h3 class="card-title text-center">Your 'Gotchi</h3>
-                <span>{{dataValues.gotchiName}}</span>
+                <div id="user-gotchi">{{dataValues.gotchiName}}</div>
                 <div class="text-center mb-3">
                     <img src="{{dataValues.gotchiPicture}}" class="img-fluid rounded" id="gotchi-img">
                 </div>
@@ -27,7 +28,7 @@
         <div class="card col-6 border-0 ml-auto">
             <div class="card-body">
                 <h5 class="card-title text-center">What would you like to do with your Gotchi?</h5>
-                <div class="list-group">
+                <div class="list-group mt-5">
                     <button data-health="{{dataValues.health}}" data-points="{{dataValues.hungry}}" data-id="{{dataValues.id}}" name="hungry" value=5 type="button"
                     class="list-group-item list-group-item-action action-btn" id="feedBtn" data-toggle="modal"
                         data-target="#modal">Food Supply</button>

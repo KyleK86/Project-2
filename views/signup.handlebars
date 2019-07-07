@@ -1,13 +1,14 @@
 {{!-- Navbar Start --}}
-<nav class="navbar navbar-light bg-light mb-4">
-    <span class="navbar-brand mb-0 h1 nav-head">Killer Mutant Robogotchis!!!!</span>
-    <span><a id="login" href="/login">Already a User?</a></span>
+<nav class="navbar mb-4">
+    <img class="navbar-logo" src="/images/logo.png" alt="Robogotchi Logo">
+    <span class="navbar-brand">Killer Mutant Robogotchis!!!!</span>
+    <a id="login" href="/login">Already a User?</a>
 </nav>
 {{!-- Navbar End --}}
 
 {{!-- Main Container Start --}}
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-between">
 
         {{!-- Build Gotchi Start --}}
         <div class="card col-5 border-0">
@@ -35,9 +36,9 @@
         {{!-- Build Gotchi End --}}
 
         {{!-- Signup Card Start --}}
-        <div class="card col-7 border-0">
+        <div class="card col-6 border-0">
             <div class="card-body">
-                <h5 class="card-title text-center mb-4">Fill out all inputs to create an account</h5>
+                <h5 class="card-title text-center">Fill out all inputs to create an account</h5>
                 <form class="sign-up">
                     <div class="form-group">
                         <label for="name"></label>
