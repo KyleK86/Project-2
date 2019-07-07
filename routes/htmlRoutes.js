@@ -35,6 +35,7 @@ module.exports = function (app) {
     app.get("/signup", function (req, res) {
         var errorObj = req.session.errors;
         res.render("signup", errorObj);
+        delete req.session.errors;
     });
 
     // Load login page when user logs out  
