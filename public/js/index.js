@@ -10,7 +10,7 @@ $(document).ready(function () {
         modalUpdate(column, health, currentValue);
     });
 
-    $(".modal-footer button").on("click", function() {
+    $(".modal button").on("click", function() {
         window.location.reload();
     });
 
