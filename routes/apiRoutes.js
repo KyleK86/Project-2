@@ -9,7 +9,7 @@ module.exports = function (app) {
     // Handle login post route
     app.post("/api/login", passport.authenticate("local"), function (req, res) {
         if (!req.user) {
-            req.redirect("/login")
+            res.redirect("/login")
         }
         res.json(req.user);
     });
