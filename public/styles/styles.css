@@ -8,13 +8,12 @@ body {
     height: 100%;
     margin: 0;
     scroll-behavior: smooth;
-    background: rgb(1,8,19)
+    background: rgb(1,8,19);
 }
 
 /*------------------------------------*/
 /* Navbar Style */
 /*------------------------------------*/
-
 .navbar {
     justify-content: space-around;
     background-color: rgba(0, 0, 0, 0.568) !important;
@@ -59,10 +58,6 @@ body {
 /*------------------------------------*/
 /* Card Style */
 /*------------------------------------*/
-.sign-up-card {
-    margin-right: 50px;
-}
-
 .card {
     color: white;
     background-color: rgba(0, 0, 0, 0.568);
@@ -116,7 +111,9 @@ input {
 
 #gotchi-img {
     width: 80%;
+    margin-top: 1em;
     object-fit: cover;
+    box-shadow: 0 0 10px 0 #1a5cb1;
     user-select: none;
 }
 
@@ -203,6 +200,7 @@ input {
     height: 125%;
     object-fit: fill;
     z-index: -1;
+    margin-bottom: -0.5em;
 }
 
 .content {
@@ -242,6 +240,35 @@ input {
     background: rgba(0, 0, 0, 0.568) !important;
     color: white;
 }
+
+/*------------------------------------*/
+/* Footer Style*/
+/*------------------------------------*/
+.footer {
+    background: rgba(0, 0, 0, 0.568);
+    color: white;
+    user-select: none;
+}
+
+.credit {
+    color: #4afdfe;
+    transition: all 0.25s;
+}
+
+.credit:hover {
+    text-decoration: none;
+}
+
+.team {
+    color: purple;
+    transition: all 0.25s;
+}
+
+.team:hover {
+    text-decoration: none;
+    color: rgb(87, 1, 87);
+}
+
 
 /*------------------------------------*/
 /* Scrollbar Style*/

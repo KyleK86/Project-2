@@ -65,9 +65,9 @@
                             placeholder="Re-Enter Password">
                     </div>
                     {{#if errors}}
-                    {{#each errors}}
-                    <p class="alert alert-danger" id="error-text">{{ this.msg }}</p>
-                    {{/each}}
+                        {{#each errors}}
+                            <p class="alert alert-danger" id="error-text">{{ this.msg }}</p>
+                        {{/each}}
                     {{/if}}
                     <div class="form-group d-flex justify-content-center">
                         <button type="submit" class="btn btn-success">Create Account!</button>
