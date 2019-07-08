@@ -1,5 +1,5 @@
 .list-group-item {
-  line-height: 2.5;
+    line-height: 2.5;
 }
 /* 
 .sign-up {
@@ -14,59 +14,60 @@
 /* Navbar Style */
 /*------------------------------------*/
 .navbar {
-  justify-content: space-around;
-  background-color: rgba(0, 0, 0, 0.568)!important;
-
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.568) !important;
 }
 
 .navbar-logo {
-  width: 200px;
-  margin: -50px 0;
+    width: 200px;
+    margin: -50px 0;
 }
 
 #login,
-#logout {
-  color: white;
-  transition: all 0.25s;
+#logout,
+#boot-btn {
+    color: white;
+    transition: all 0.25s;
 }
 
 #logout:hover,
-#login:hover {
-  color: #4afdfe;
-  text-decoration: none;
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  transform: scale(1.2);
+#login:hover,
+#boot-btn:hover {
+    color: #4afdfe;
+    text-decoration: none;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .navbar-brand {
-  font-family: 'Russo One', sans-serif;
-  color: white !important;
-  font-size: 32px;
-  padding: 10px;
-  text-shadow: 2px 2px #1a5cb1;
+    font-family: "Russo One", sans-serif;
+    color: white !important;
+    font-size: 32px;
+    padding: 10px;
+    text-shadow: 2px 2px #1a5cb1;
 }
 
 /*------------------------------------*/
 /* Card Style */
 /*------------------------------------*/
 .sign-up-card {
-  margin-right: 50px;
+    margin-right: 50px;
 }
 
 .card {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.568);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.568);
 }
 .card-title {
-  font-family: 'Russo One', sans-serif;
+    font-family: "Russo One", sans-serif;
 }
 
 #user-gotchi {
-  text-align: center;
-  font-family: 'Russo One', sans-serif;
-  font-size: 1.5em;
+    text-align: center;
+    font-family: "Russo One", sans-serif;
+    font-size: 1.5em;
 }
 
 #gotchi-img {
@@ -75,50 +76,58 @@
 }
 
 .alert {
-  font-size: 0.75em;
-  text-align: center;
-  padding: 0.5em;
-  margin-bottom: 0.5em;
+    font-size: 0.75em;
+    text-align: center;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 /*------------------------------------*/
 /* Video Style */
 /*------------------------------------*/
 #myVid {
-  right: 0;
-  bottom: 0;
-  width: 100%; 
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .content {
-  top: 0;
-  position: absolute;
-  width: 100%;
+    top: 0;
+    position: absolute;
+    width: 100%;
 }
 
 /*------------------------------------*/
 /* Button Style */
 /*------------------------------------*/
 .btn:focus {
-  box-shadow: none;
+    box-shadow: none;
 }
 
 .btn-success {
-  color:#02187a;
-  background-color: #4afdfe;
-  border-color: #1a5cb1;
-  margin-top: 1em;
-  transition: all 0.25s;
+    color: #02187a;
+    background-color: #4afdfe;
+    border-color: #1a5cb1;
+    margin-top: 1em;
+    transition: all 0.25s;
 }
 
 .btn-success:hover,
 .btn:active {
-  color: white;
-  background-color: #1a5cb1 !important;
-  border: none;
-  box-shadow: 0px 0px 10px 3px #4afdfe !important;
-  transform: scale(1.05)
+    color: white;
+    background-color: #1a5cb1 !important;
+    border: none;
+    box-shadow: 0px 0px 10px 3px #4afdfe !important;
+    transform: scale(1.05);
+}
+
+/*------------------------------------*/
+/* 404 Not Found Style*/
+/*------------------------------------*/
+#errortron {
+    background: rgba(0, 0, 0, 0.568) !important;
+    color: white;
 }
