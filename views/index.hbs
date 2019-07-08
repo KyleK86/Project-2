@@ -1,13 +1,13 @@
 
-
 {{!-- Navbar Start --}}
 <nav class="navbar mb-4">
     <img class="navbar-logo" src="/images/logo.png" alt="Robogotchi Logo">
-    <span class="navbar-brand">Killer Mutant Robogotchis!!!!</span>
+    <span class="navbar-brand">Robogotchi Cyber Pets!!!</span>
     <a id="logout" href="/logout">Logout</a>
 </nav>
 {{!-- Navbar End --}}
 
+{{!-- Main Container Start --}}
 <div class="container">
     <div class="row">
 
@@ -23,46 +23,45 @@
         </div>
         {{!-- Character Card End--}}
 
-
         {{!-- Stats Card Start --}}
         <div class="card col-6 border-0 ml-auto">
             <div class="card-body">
                 <h5 class="card-title text-center">What would you like to do with your Gotchi?</h5>
-                <div class="list-group mt-5">
+                <div class="list-group text-center mt-5">
                     <button data-health="{{dataValues.health}}" data-points="{{dataValues.hungry}}" data-id="{{dataValues.id}}" data-column="hungry" type="button"
-                    class="list-group-item list-group-item-action action-btn" id="feedBtn" data-toggle="modal"
-                        data-target="#modal">Hunger Level: {{dataValues.hungry}} <small class="text-muted">(click to feed)</small></button>
+                        class="list-group-item list-group-item-action action-btn" id="feedBtn" data-toggle="modal"
+                        data-target="#modal"><span>Hunger Level: {{dataValues.hungry}}</span><span><small class="text-muted">( Click to Feed )</small></span></button>
                     <button data-health="{{dataValues.health}}" data-points="{{dataValues.bored}}" data-id="{{dataValues.id}}" data-column="bored" type="button"
                         class="list-group-item list-group-item-action action-btn" id="entertainBtn" data-toggle="modal"
-                        data-target="#modal2">Boredom Level: {{dataValues.bored}} <small class="text-muted">(click to entertain)</small></button>
+                        data-target="#modal2"><span>Boredom Level: {{dataValues.bored}}</span><span><small class="text-muted">( Click to Entertain )</small></span></button>
                     <button data-health="{{dataValues.health}}" data-points="{{dataValues.lazy}}" data-id="{{dataValues.id}}" data-column="lazy" type="button"
                         class="list-group-item list-group-item-action action-btn" id="exerciseBtn" data-toggle="modal"
-                        data-target="#modal3">Laziness Level: {{dataValues.lazy}} <small class="text-muted">(click to excercise)</small></button>
+                        data-target="#modal3"><span>Laziness Level: {{dataValues.lazy}}</span><span><small class="text-muted">( Cick to Excercise )</small></button>
                 </div>
                 <hr>
                 <ul class="list-group">
-                    <li class="list-group-item text-dark">Health Level: {{dataValues.health}} <span id="healtNote"></span></li>
+                    <li class="list-group-item text-center" id="healthDiv">Health Level: {{dataValues.health}} <span id="healtNote"></span></li>
                 </ul>
             </div>
         </div>
         {{!-- Stats Card End --}}
 
-
         {{!-- Food Modal Start --}}
         <div class="modal" id="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">You Fed Your Gotchi!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span id="exit" aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
+                        <img class="modal-gif" src="https://media.giphy.com/media/l0NwI1oBNxYfoRRny/giphy.gif" alt="Robot Tacos" style="width: 80%">
                         <p>Your Gotchi now has <span id="hungry-points"></span> health points</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -71,41 +70,42 @@
 
         {{!-- Entertainment Modal Start --}}
         <div class="modal" id="modal2" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">You entertained your Gotchi!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span id="exit" aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
+                        <img class="modal-gif" src="https://media.giphy.com/media/Ps89uHS7n72j6/giphy.gif" alt="Robot Dance" style="width: 80%">
                         <p>Your Gotchi now has <span id="bored-points"></span> health points</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
         {{!-- Entertainment Modal End --}}
 
-
         {{!-- Exercise Modal Start --}}
         <div class="modal" id="modal3" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Keeping your Gotchi fit!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span id="exit" aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
+                        <img class="modal-gif" src="https://media.giphy.com/media/7A7iRWTVsNIub5g6rk/giphy.gif" alt="Robot Exercise" style="width: 80%">
                         <p>Your Gotchi now has <span id="lazy-points"></span> health points</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -114,8 +114,9 @@
 
     </div>
 </div>
+{{!-- Main Container End --}}
+
 
 {{!-- Scripts --}}
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="/js/index.js"></script>
-

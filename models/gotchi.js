@@ -1,4 +1,6 @@
+
 module.exports = function (sequelize, DataTypes) {
+    
     var Gotchi = sequelize.define("Gotchi", {
         gotchiName: {
             type: DataTypes.STRING,
