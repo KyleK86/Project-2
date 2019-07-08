@@ -1,18 +1,22 @@
-DROP DATABASE IF EXISTS robogotchi_db;
-CREATE DATABASE robogotchi_db;
+/* useful schema for looking at timers and such
+* just substitute the procedure or event as needed.
+* 
+*/
 
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+SHOW EVENTS FROM t2yeq1ofmhxk7eqh;
+
+SHOW PROCEDURE status LIKE 'incrementHungry';
+SHOW CREATE PROCEDURE incrementHungry;
+
+SELECT * FROM INFORMATION_SCHEMA.PROCEDURES
+WHERE PROCEDURE_NAME = 'incrementHungry';
 
 /* This is the setup for our timed decrementers
 * cut and paste everything below into mysql workbench in the jawsDB instance and this will 
 * do some timed increments of things resulting in loss of health
 */
 
-USE robogotchi_db;
-
--- enable timers in SQL
-SET GLOBAL event_scheduler = 1;
+USE t2yeq1ofmhxk7eqh;
 
 -- code to kill these procedures / timers before modifying 
 
@@ -31,17 +35,17 @@ DROP EVENT IF EXISTS hungryTimer;
 delimiter //
 CREATE PROCEDURE incrementBored()
 BEGIN
-	UPDATE robogotchi_db.Gotchis SET bored = bored + 3
-	WHERE isAlive=1 AND type='human';
-	UPDATE robogotchi_db.Gotchis SET bored = bored + 2
-	WHERE isAlive=1 AND type='alien';
-	UPDATE robogotchi_db.Gotchis SET bored = bored + 1
-	WHERE isAlive=1 AND type='robot';
-	UPDATE robogotchi_db.Gotchis SET health = health - (bored + lazy + hungry)
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET bored = bored + 3
+	WHERE isAlive=1 AND gotchiType='human';
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET bored = bored + 2
+	WHERE isAlive=1 AND gotchiType='alien';
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET bored = bored + 1
+	WHERE isAlive=1 AND gotchiType='robot';
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET health = health - (bored + lazy + hungry)
 	WHERE isAlive=1;
-	UPDATE robogotchi_db.Gotchis SET health = 0
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET health = 0
 	WHERE health < 0;
-	UPDATE robogotchi_db.Gotchis SET isAlive = 0
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET isAlive = 0
 	WHERE health=0;
 END
 //
@@ -49,17 +53,17 @@ END
 delimiter //
 CREATE PROCEDURE incrementLazy()
 BEGIN
-	UPDATE robogotchi_db.Gotchis SET lazy = lazy + 3
-	WHERE isAlive=1 AND type='human';
-UPDATE robogotchi_db.Gotchis SET lazy = lazy + 2
-	WHERE isAlive=1 AND type='alien';
-UPDATE robogotchi_db.Gotchis SET lazy = lazy + 1
-	WHERE isAlive=1 AND type='robot';
-	UPDATE robogotchi_db.Gotchis SET health = health - (bored + lazy + hungry)
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET lazy = lazy + 3
+	WHERE isAlive=1 AND gotchiType='human';
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET lazy = lazy + 2
+	WHERE isAlive=1 AND gotchiType='alien';
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET lazy = lazy + 1
+	WHERE isAlive=1 AND gotchiType='robot';
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET health = health - (bored + lazy + hungry)
 	WHERE isAlive=1;
-	UPDATE robogotchi_db.Gotchis SET health = 0
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET health = 0
 	WHERE health < 0;
-	UPDATE robogotchi_db.Gotchis SET isAlive = 0
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET isAlive = 0
 	WHERE health=0;
 END
 //
@@ -67,17 +71,17 @@ END
 delimiter //
 CREATE PROCEDURE incrementHungry()
 BEGIN
-	UPDATE robogotchi_db.Gotchis SET hungry = hungry + 3
-	WHERE isAlive=1 AND type='human';
-UPDATE robogotchi_db.Gotchis SET hungry = hungry + 2
-	WHERE isAlive=1 AND type='alien';
-UPDATE robogotchi_db.Gotchis SET hungry = hungry + 1
-	WHERE isAlive=1 AND type='robot';
-	UPDATE robogotchi_db.Gotchis SET health = health - (bored + lazy + hungry)
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET hungry = hungry + 3
+	WHERE isAlive=1 AND gotchiType='human';
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET hungry = hungry + 2
+	WHERE isAlive=1 AND gotchiType='alien';
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET hungry = hungry + 1
+	WHERE isAlive=1 AND gotchiType='robot';
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET health = health - (bored + lazy + hungry)
 	WHERE isAlive=1;
-	UPDATE robogotchi_db.Gotchis SET health = 0
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET health = 0
 	WHERE health < 0;
-	UPDATE robogotchi_db.Gotchis SET isAlive = 0
+	UPDATE t2yeq1ofmhxk7eqh.Gotchis SET isAlive = 0
 	WHERE health=0;
 END
 //
