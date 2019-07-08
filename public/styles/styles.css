@@ -1,18 +1,11 @@
 .list-group-item {
     line-height: 2.5;
 }
-/* 
-.sign-up {
-  border: 2px solid rgb(3, 59, 3);
-}
-
-.character-card {
-  border: 2px solid rgb(3, 59, 3);
-} */
 
 /*------------------------------------*/
 /* Navbar Style */
 /*------------------------------------*/
+
 .navbar {
     justify-content: space-around;
     background-color: rgba(0, 0, 0, 0.568) !important;
