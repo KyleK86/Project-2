@@ -10,7 +10,7 @@ $(document).ready(function() {
 
         if (selectVal) {
             if (input === "") {
-                $("#gotchi-img").attr("src", "https://via.placeholder.com/250");
+                $("#gotchi-img").attr("src", "/images/robot-placeholder.jpg");
             } else {
                 $("#gotchi-img").attr("src", url);
             }
