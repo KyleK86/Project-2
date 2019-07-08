@@ -49,9 +49,13 @@ These instructions will get you a copy of the project up and running on your loc
 ## Authors ⌨️
 
 *** Andy Hardy *** - [ahardy42](https://github.com/ahardy42)
+<br>
 *** Joey Kubalak *** - [TreezCode](https://github.com/TreezCode)
+<br>
 *** Kyle Knox *** - [KyleK86](https://github.com/KyleK86)
+<br>
 *** Amanda Dovel *** - [amandadovel](https://github.com/amandadovel)
+<br>
 
 ## Acknowledgments 🌟
 
