@@ -30,7 +30,7 @@ module.exports = function (app) {
         res.locals.metaTags = { 
             title: "Robogotichi • | • Login",  
         };
-        // If the user already has an account send them to the members page
+        // If user found send to index otherwise render login
         if (req.user) {
             res.redirect("/");
         }
