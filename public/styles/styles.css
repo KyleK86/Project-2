@@ -9,11 +9,13 @@ body {
     margin: 0;
     scroll-behavior: smooth;
     background: rgb(1,8,19)
+
 }
 
 /*------------------------------------*/
 /* Navbar Style */
 /*------------------------------------*/
+
 .navbar {
     justify-content: space-around;
     background-color: rgba(0, 0, 0, 0.568) !important;
